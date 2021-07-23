@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Assessment Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    .seperator{
+      border-bottom: 1px dashed #cacaca;
+    }
+    .form-group {
+        margin-bottom: 35px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2>Please choose relevant value</h2>
+  <form method="POST" action="/">
+    {% csrf_token %}
+    {% for i in questions %}
+      <input type="hidden" name="questions" value="{{i.id}}">
+      <div class="form-group">
+        <div><b>{{i.question}}</b></div>
+        <div class="col-md-6">
+          <div class="radio">
+            <label><input type="radio" name="question_{{forloop.counter}}" value="1" required="true">Yes</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="radio">
+            <label><input type="radio" name="question_{{forloop.counter}}" value="0" required="true">No</label>
+          </div>
+        </div>
+      </div>
+      <div class="seperator"></div>
+    {% endfor %}
+    <input type="submit" class="btn btn-primary" value="Submit">
+  </form>
+</div>
+</body>
+</html>

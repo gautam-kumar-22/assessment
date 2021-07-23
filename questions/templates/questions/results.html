@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Assessment Result</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    
+    .result, .container{text-align: center; font-weight: bold; font-size: 30px; }
+    .red{color: red; }
+    .green{color: green; }
+    .orange{color: orange; }
+
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2>Assessment Result</h2>
+  <div class="row">
+    <p class="result {{color}}">Result: {{result}}</p>
+  </div>  
+</div>
+<script>
+    window.location.hash = "no-back-button";
+
+    // Again because Google Chrome doesn't insert
+    // the first hash into the history
+    window.location.hash = "Again-No-back-button"; 
+
+    window.onhashchange = function(){
+        window.location.hash = "no-back-button";
+    }
+</script>
+</body>
+</html>
